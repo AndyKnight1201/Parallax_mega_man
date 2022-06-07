@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Andy Chao">
+    <meta name="description" content="本網頁僅提供作品集使用，無任何商業行為。相關圖片版權歸公司Capcom所有。">
+    <title>Parallax MegaMan ZerO</title>
+    <link href="https://fonts.googleapis.com/earlyaccess/notosanstc.css" rel="stylesheet" media="all">
+    <style>
+        /* @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);  */
+        * {
+            box-sizing: border-box;
+            /* font: 粗體600 大小15px/行高1.2 字型1號,字型2號; */
+            /* 有些字型有括號''有些沒有 */
+            font: 600 15px/1.2 'Noto Sans TC', "Lato", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .white {
+            color: whitesmoke;
+
+        }
+
+        .title-spacing {
+            /* 字的間距 */
+            letter-spacing: 5px;
+        }
+
+        .font-big {
+            font-size: 50px;
+
+        }
+
+        .backgroundfixed {
+            /* 背景設定fixed，跟著滑動跑 */
+            background-attachment: fixed;
+            /* 透明度 */
+            /* opacity: 0.8;  */
+
+        }
+
+        .banner {
+            width: 100%;
+            height: 100vh;
+            background-image:
+                url('image/Z4.jpg'),
+                url('image/ZC.jpg');
+            background-size: 110%, 110%;
+            background-position: 90% 00%, 50% 110%;
+            position: relative;
+            background-repeat: no-repeat;
+            /* 背景填滿 */
+            /* background-size: cover; */
+            /* 背景定位:至中 */
+            /* background-position: center; */
+        }
+
+        .banner2 {
+            width: 100%;
+            height: 100vh;
+            background-image:
+                url('image/Z6.jpg');
+            background-size: cover;
+            background-position: 50% 50%;
+            position: relative;
+            background-repeat: no-repeat;
+        }
+
+        .title {
+
+            width: 280px;
+            height: 80px;
+            clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0 100%);
+            background-color: rgb(179, 0, 0, 0.8);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 7px 0px;
+            /* 文字至行中央 */
+            text-align: center;
+            /* 單一行高 */
+            /* line-height: 200px; */
+            /* 透明度 */
+            /* opacity: 0.8; */
+        }
+
+        .title2 {
+
+            width: 400px;
+            height: 80px;
+            clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0 100%);
+            background-color: rgb(179, 0, 0, 0.8);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 7px 0px;
+            /* 文字至行中央 */
+            text-align: center;
+            /* 單一行高 */
+            /* line-height: 200px; */
+            /* 透明度 */
+            /* opacity: 0.8; */
+        }
+
+
+
+        .artical {
+            padding: 50px;
+            background-color: rgb(179, 0, 0);
+            position: relative;
+        }
+
+        .artical2 {
+            width: 100%;
+            /* height: 620px; */
+            padding: 80px 00px 0px 00px;
+            background-color: rgb(179, 0, 0);
+            /* position: relative; */
+        }
+
+        .artical-title {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 25px;
+
+        }
+
+        .justify {
+            /* 多行文字段落兩邊切齊 */
+            text-align: justify;
+        }
+
+        .small-img {
+            padding: 150px 0;
+            background-size: cover;
+
+
+        }
+
+        #imgA {
+            background-image: url('image/Z8.jpg');
+            background-position: 50% 90%;
+            opacity: 0.8;
+
+        }
+
+        .small-img-title {
+            width: 400px;
+            height: 100px;
+            clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0 100%);
+            text-align: center;
+            background-color: rgb(0, 0, 0, 0.9);
+            margin: auto;
+            padding: 15px 0px;
+
+        }
+
+        .font-box {
+            background-color: black;
+            padding: 50px;
+        }
+
+        #imgB {
+            background-image: url('image/Z9.jpg');
+            background-position: 50% 40%;
+            opacity: 0.8;
+        }
+
+        .nav-box {
+            position: fixed;
+            z-index: 1;
+            width: 100%;
+            height: 70px;
+            background-color: rgb(179, 0, 0, 0.5);
+            /* margin-top: 0px ; */
+
+        }
+
+        .logo-box {
+            float: left;
+            margin-top: 5px;
+            margin-left: 10px;
+            width: 150px;
+            height: 65px;
+            background-image: url('image/ZL.png');
+            background-size: 100%;
+            background-repeat: no-repeat;
+            cursor: pointer
+        }
+
+        .link-box {
+            float: right;
+            margin-top: 23px;
+            margin-right: 25px;
+
+        }
+
+        /* link-box裡所有的a */
+        .link-box a {
+            background-color: rgba(145, 0, 0, 0.7);
+            padding: 10px 20px 10px 20px;
+            /* border-radius: 10px 10px 20px 40px; */
+            border: 10px solid rgba(225, 187, 1, 0.658);
+            clip-path: polygon(30% 0%, 100% 0%, 70% 100%, 0 100%);
+            text-decoration: none;
+            font-size: 20px;
+            margin: 0px -12px;
+        }
+
+        /* .videobox {
+    
+        margin-top: 20px;
+        position:absolute;
+        left: 50%;
+        transform: translate(-50%,-0%);
+        background-color: rgb(179, 0, 0);
+        
+        
+    } */
+
+        .videobox {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+        }
+
+        .videobox iframe {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -0%);
+            width: 60%;
+            height: 60%;
+
+        }
+
+        .imgC {
+            width: 200px;
+            height: 50px;
+            background-image: url('image/ZA.png');
+            /* background-position: 10% 50%; */
+            background-size: 100%;
+            background-repeat: no-repeat;
+            position: relative;
+            margin-top: -70px;
+            margin-right: 20px;
+            float: right;
+            cursor: pointer;
+            /* z-index: 5; */
+
+
+        }
+
+        /* .Fix{
+        background-color:rgba(192, 0, 0);
+        width: 100%;
+        height: 70px;
+    }
+     */
+    </style>
+
+</head>
+
+<body>
+    <main>
+        <!-- 標籤列表 -->
+        <div class="Fix">
+
+            <div class="nav-box">
+                <div class="logo-box"
+                    onclick="location.href='https://web.archive.org/web/20111230055443/http://www.capcom.co.jp/rockmanzero1/';">
+                </div>
+                <div class="link-box">
+                    <!-- 超連結 -->
+                    <a href="#Top" class="white">トップ</a>
+                    <a href="#Mid" class="white">ミドル</a>
+                    <a href="#Bot" class="white">ボトム</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="Top">
+            <!-- 第一塊區塊 大圖-->
+            <div class="banner backgroundfixed">
+                <div class="title white title-spacing font-big">
+                    序章
+                </div>
+            </div>
+        </div>
+
+        <!-- 第二塊區塊 白字內文-->
+        <div class="section">
+            <div class="artical">
+                <div class="artical-title title-spacing white">
+                    概要
+                </div>
+                <div class="justify white title-spacing">
+                    <!-- &emsp;為空格(一個中文字的距離) -->
+                    <p>&emsp;&emsp;ロックマンゼロシリーズの第一作目で、ロックマンシリーズ15周年記念作品。ロックマンXシリーズのゼロを主人公に置きつつも、従来のシリーズとは一線を画すキャラクターデザインや世界観、「正義」と「悪」が曖昧なストーリーとなっている。アクション部分は基本的にXシリーズのものを継承しているが、繋がりを持ち徒歩で移動可能なマップ、サイバーエルフという新たな強化システム、レベルアップする複数の武器と3種類のエレメントチップを使用する戦闘スタイル、ステージ序盤や中盤に発生する変則的なボス戦、捕らえられた仲間の救出や爆弾の解除といった特殊な目的が存在するステージの登場など、様々な試みがなされている。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="Mid">
+            <!-- 第三塊區塊 圖片-->
+            <div id="imgA" class="small-img backgroundfixed">
+                <div class="small-img-title white title-spacing font-big">
+                    敵の部隊
+                </div>
+            </div>
+            <!-- 第四塊區塊 黑色-->
+            <div class="font-box white justify title-spacing">
+                <p>&emsp;&emsp;妖精戦争戦後にエックスが建国した「人間とレプリロイドの理想郷」、エックスが妖精戦争終結後に戦災復興とレプリロイド、人間の安息の地を目指して造られた国。戦禍を逃れた者が集う場所であったが、コピーエックスがエックスの代役となったことをきっかけにだんだん歪んでしまい、ドクターバイルの謀略により四天王も失脚していなくなったことで、人間とレプリロイド双方にとって決定的なディストピアと化した。
+                </p>
+            </div>
+
+            <!-- 第五塊區塊 圖片-->
+            <div id="imgB" class="small-img backgroundfixed">
+                <div class="small-img-title white title-spacing font-big">
+                    友達の軍
+                </div>
+            </div>
+            <!-- 第六塊區塊 黑色-->
+            <div class="font-box white justify title-spacing">
+                <P>&emsp;&emsp;レジスタンスは、ロックマンゼロシリーズの組織で、主にニューアルカディアによって異常と特定された思考ロボットで構成されています。 反乱軍のリーダーはシェールです。
+                    反政府勢力は新しいアルカディア政府に反対しましたが、人間に害を及ぼすことはなく、自分たちを守るためだけに戦いました。第4ゲームでは、反乱軍は白鹿博士によって脅かされたすべての人々も保護しました。
+                    実際、シェールはより平和的な方法で戦いを終わらせようとしています。</P>
+            </div>
+        </div>
+
+        <div>
+            <!-- 第七塊區塊 大圖-->
+            <div class="banner2 backgroundfixed">
+                <div class="title2 white title-spacing font-big">
+                    トレーラー
+                </div>
+            </div>
+        </div>
+
+        <div id="Bot" class="section">
+            <div class="artical2">
+                <div class="artical-title title-spacing white">
+                    ロックマン ゼロ&ゼクス ダブルヒーローコレクション - アナウンストレーラー
+                </div>
+
+                <div class="videobox ">
+                    <iframe width="800" height="450" src="https://www.youtube.com/embed/4ANCX2xS9ME"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+
+                </div>
+
+            </div>
+            <div class="imgC" onclick="location.href='https://www.capcom.com/';">
+
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
